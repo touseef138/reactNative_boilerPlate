@@ -1,6 +1,14 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 
+
+apply from: project(':react-native-config').projectDir.getPath() + '/dotenv.gradle'
+project.ext.envConfigFiles = [
+        development: ".env.development",
+        staging :".env.staging",
+        production:'.env.production'
+]
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -70,9 +78,9 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
     ndkVersion rootProject.ext.ndkVersion
-
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+     
     namespace "com.reactnative_boilerplate"
     defaultConfig {
         applicationId "com.reactnative_boilerplate"
@@ -80,6 +88,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        resValue 'string', 'build_config_package','com.reactnative_boilerplate'
     }
     signingConfigs {
         debug {
@@ -101,6 +110,24 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    
+   flavorDimensions 'env'
+    productFlavors {
+        development {
+            dimension 'env'
+            applicationIdSuffix ".development"
+        }
+        staging {
+            dimension 'env'
+            applicationIdSuffix ".staging"
+        }
+        production {
+            dimension 'env'
+            applicationIdSuffix ""
+        }
+    }
+
+
 }
 
 dependencies {
@@ -121,3 +148,4 @@ dependencies {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+
