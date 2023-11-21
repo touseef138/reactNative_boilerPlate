@@ -1,19 +1,16 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback ,useEffect} from "react";
 import { StatusBar, StyleSheet, useColorScheme } from "react-native";
+import NetInfo from '@react-native-community/netinfo';
 import { NavigationContainer } from "@react-navigation/native";
 import { SplashStack, HomeStack } from "./src/navigations";
+import { observer } from "mobx-react";
+import {store} from "./src/store";
+import OfflineNotice from "./src/components/OfflineNotice";
 
+export default observer(App);
 function App() {
-  const splashTimeout = 2000;
   const isDarkMode = useColorScheme() === "dark";
-
-  const [isSplashShow, setIsSplashShow] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsSplashShow(false);
-    }, splashTimeout);
-  }, []);
+  const { isSplashShow,setIsInternet,isInternet } =  store.GeneralStore;
 
   const StatusBarShow = useCallback(() => {
     return (
@@ -24,11 +21,21 @@ function App() {
     );
   }, [isDarkMode]);
 
+  useEffect(() => {
+    const unsubscribeNetinfo = NetInfo.addEventListener(state => {
+      setIsInternet(state.isConnected);
+    });
+    return () => {
+      unsubscribeNetinfo();
+    };
+  }, []);
+
   return (
     <>
       <NavigationContainer>
         <StatusBarShow />
         {isSplashShow ? <SplashStack /> : <HomeStack />}
+        {!isInternet   && <OfflineNotice />}
       </NavigationContainer>
     </>
   );
@@ -39,5 +46,3 @@ const styles = StyleSheet.create({
     backgroundColor: isDarkMode ? "black" : "white",
   }),
 });
-
-export default App;
