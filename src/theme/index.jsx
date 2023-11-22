@@ -1,9 +1,9 @@
-// import {colors} from './colors';
 // import {window} from './window';
 import { fontFamily } from "./fontFamily";
+import colors from "./colors";
 
 export default theme = {
-  // colors,
   // window,
   fontFamily,
+  colors
 };
