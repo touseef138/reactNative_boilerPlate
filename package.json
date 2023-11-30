@@ -16,7 +16,7 @@
     "forceClean": "npm cache clean --force",
     "ios:Pod:Reset": "cd ios && pod deintegrate && pod setup && bundle exe pod install",
     "ios:Pod:install": "cd ios && bundle exe pod install && cd ..",
-    "node:clean": "rm -rf node_modules&& yarn cache clean && yarn install",
+    "node:clean": "rm -rf node_modules && yarn cache clean && yarn install",
     "ios:clean": "yarn node:clean &&  cd ios && rm -rf ~/Library/Caches/CocoaPods && rm -rf Pods && rm -rf ~/Library/Developer/Xcode/DerivedData/* && yarn ios:Pod:Reset",
     "aos:clean": "yarn node:clean && cd android &&  ./gradlew -stop  && ./gradlew clean",
     "setDevelopment": "ENVFILE=.env.development",

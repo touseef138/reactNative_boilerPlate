@@ -1,14 +1,7 @@
 import { observable, makeObservable, action } from "mobx";
-import theme from "../theme";
 import { persist } from "mobx-persist";
+import getTheme from "../functions"
 
-const getTheme = (val) => {
-  return val === "white"
-    ? theme.colors.whiteTheme
-    : val === "black"
-    ? theme.colors.blackTheme
-    : theme.colors.orangeTheme;
-};
 
 class generalStore {
   constructor() {
@@ -19,7 +12,7 @@ class generalStore {
   @observable isInternet = true;
   @observable isSplashShow = true;
   @persist("object") @observable appTheme = "white";
-  @observable colors = getTheme(this.appTheme);
+  @observable colors = getTheme (this.appTheme);
 
   @action setIsHydated = (val) => {
     this.isHydated = val;
