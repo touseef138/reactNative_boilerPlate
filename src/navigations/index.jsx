@@ -1,4 +1,4 @@
-import { SplashStack } from "./SplashStack";
-import { HomeStack } from "./HomeStack"
+import {SplashStack} from "./SplashStack";
+import {HomeStack} from "./HomeStack";
 
-export { SplashStack,HomeStack };
+export { SplashStack, HomeStack };
