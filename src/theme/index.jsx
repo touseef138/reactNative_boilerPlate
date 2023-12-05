@@ -2,8 +2,8 @@
 import { fontFamily } from "./fontFamily";
 import colors from "./colors";
 
-export default theme = {
+export default {
   // window,
   fontFamily,
-  colors
+  colors,
 };

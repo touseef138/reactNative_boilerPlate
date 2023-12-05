@@ -3,7 +3,8 @@ const whiteTheme = {
   background: "white",
   offlineNoticeContainer:"red",
   title: "black",
-  offlineNoticeText:"white"
+  offlineNoticeText:"white",
+  selectedColor:"#4aab29"
 };
 
 const blackTheme = {
@@ -11,19 +12,23 @@ const blackTheme = {
   background: "black",
   offlineNoticeContainer:"red",
   title: "white",
-  offlineNoticeText:"white"
+  offlineNoticeText:"white",
+  selectedColor:"#4aab29"
 };
 
-const orangeTheme = {
+const purpleTheme = {
   statusBarStyle: "light-content",
-  background: "orange",
+  background: "purple",
   offlineNoticeContainer:"red",
   title: "white",
-  offlineNoticeText:"white"
+  offlineNoticeText:"white",
+  selectedColor:"#4aab29"
 };
+
+
 
 export default {
   whiteTheme,
   blackTheme,
-  orangeTheme,
+  purpleTheme,
 };

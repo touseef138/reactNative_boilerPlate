@@ -8,7 +8,6 @@ import { store } from "./src/store";
 import hydrateStores from "./src/store/hydrateStores";
 import OfflineNotice from "./src/components/OfflineNotice";
 
-
 export default observer(App);
 function App() {
   const {
@@ -20,18 +19,9 @@ function App() {
     colors,
   } = store.GeneralStore;
 
-  const StatusBarShow = useCallback(() => {
-    return (
-      <StatusBar
-        barStyle={colors.statusBarStyle}
-        backgroundColor={colors.background}
-      />
-    );
-  }, [appTheme,colors]);
-
-  useEffect(()=>{
-  setAppTheme(appTheme)
-  },[appTheme])
+  useEffect(() => {
+    setAppTheme(appTheme);
+  }, [appTheme]);
 
   useEffect(async () => {
     hydrateStores();
@@ -43,7 +33,14 @@ function App() {
     };
   }, []);
 
-  
+  const StatusBarShow = useCallback(() => {
+    return (
+      <StatusBar
+        barStyle={colors.statusBarStyle}
+        backgroundColor={colors.background}
+      />
+    );
+  }, [appTheme, colors]);
 
   return (
     <>
