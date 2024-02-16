@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Text, SafeAreaView, View, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import config from "react-native-config";
@@ -9,6 +9,7 @@ import { languages } from "../../theme/languages";
 import { themes } from "../../theme/themes";
 import { vectorIcon } from "../../utils/vectorIcon";
 import { responsiveFontSize } from "react-native-responsive-dimensions";
+import database from "@react-native-firebase/database";
 
 export default observer(Home);
 function Home() {
@@ -22,12 +23,33 @@ function Home() {
       ? t("env.development")
       : isFrom === "staging"
       ? t("env.staging")
-      : t("env.prodcution");
+      : t("env.production");
 
   const onChangeLanguage = useCallback((item) => {
     i18n.changeLanguage(item.key);
     setLanguage(item);
   }, []);
+
+  // useEffect(() => {
+  //   try {
+  //     const chatAgreementRef = database().ref(`chatAgreement/Pro77ASAAAd`);
+  //     chatAgreementRef
+  //       .set({
+  //         isTerm: true,
+  //       })
+  //       .then(() => {
+  //         console.log(
+  //           "**************chatAgreementRef success*****************"
+  //         );
+  //       })
+  //       .catch((error) => {
+  //         console.log("chatAgreementRef catch error: ", error);
+  //         setLoader(false);
+  //       });
+  //   } catch (error) {
+  //     console.log("chatAgreementRef catch error: ", error);
+  //   }
+  // }, []);
 
   return (
     <SafeAreaView style={styles.container(colors)}>

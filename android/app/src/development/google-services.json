@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "381570930040",
+    "firebase_url": "https://boilerplatedev-9f630-default-rtdb.firebaseio.com",
+    "project_id": "boilerplatedev-9f630",
+    "storage_bucket": "boilerplatedev-9f630.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381570930040:android:80c123b0527b91634fa48d",
+        "android_client_info": {
+          "package_name": "com.reactnative_boilerplate.development"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlgjTrRouUKgX0CuYtY9TdiGcs6FNeRH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

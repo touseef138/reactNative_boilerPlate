@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "838377324849",
+    "project_id": "boilerplatestage",
+    "storage_bucket": "boilerplatestage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838377324849:android:7fe3f170a5e070f334b010",
+        "android_client_info": {
+          "package_name": "com.reactnative_boilerplate.staging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMsY_-of5XldEU3rHZxb17fHLOKiz2eDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
